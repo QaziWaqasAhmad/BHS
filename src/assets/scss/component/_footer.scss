@@ -1,0 +1,139 @@
+// footer-top
+.footer-top {
+    padding: 0px 0px 70px;
+
+    @include min-screen(1200) {
+        padding: 60px 0px 0px 0px;
+    }
+}
+
+.footer-widget {
+    .title {
+        color: #253138;
+        font-weight: 600;
+        line-height: 1.25;
+        margin-bottom: 25px;
+        font-size: 24px;
+
+        @include max-screen(767) {
+            margin-bottom: 15px;
+        }
+    }
+
+    p {
+        margin-bottom: 12px;
+    }
+}
+
+.footer-logo {
+    display: inline-block;
+}
+
+// footer-social-links
+
+.footer-social-links {
+    display: flex;
+    padding-top: 5px;
+
+    li {
+        margin-right: 10px;
+
+        .footer-social-link {
+            color: $dark;
+            font-size: 24px;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+.icofont-google-plus {
+    font-size: 35px !important;
+}
+
+// footer-menu
+
+.footer-menu {
+    li {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-link {
+            color: #6c6e75;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+// address
+.address {
+    li {
+        &:nth-child(2) {
+            margin-bottom: 10px;
+        }
+
+        .address-link {
+            color: #6c6e75;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+// copyright-info
+
+.copy-right-section {
+    padding: 25px 0px;
+}
+
+.copyright-info {
+    p {
+        font-size: 14px;
+
+        a {
+            color: $body-color;
+
+            &:hover {
+                text-decoration: underline;
+                color: $primary;
+            }
+        }
+    }
+}
+
+// footer-svg
+
+.footer-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 696px;
+    z-index: -1;
+}
+
+.footer-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+    @include max-screen(768, 991) {
+        height: 100%;
+    }
+
+    @include max-screen(575) {
+        height: 50%;
+    }
+}

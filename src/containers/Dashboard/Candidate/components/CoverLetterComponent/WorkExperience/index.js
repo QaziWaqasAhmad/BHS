@@ -1,0 +1,218 @@
+import { AppRegistration } from "@mui/icons-material"
+import { Box, Grid, Icon, Typography } from "@mui/material"
+import { headerColor, primaryBorderColor, primaryColor, textSecondaryColor } from "../../../../../../constants/Colors"
+import { updateResume } from "../../../../../../services/UserDashboard"
+import useStyles from "../../../../../../styles"
+import ExperienceModal from "../Components/ExperienceModal"
+import { useSnackbar } from "notistack"
+import { useState } from "react"
+import moment from "moment"
+import { useLayoutEffect } from "react"
+import { AppContext } from "../../../../../../context"
+import { useContext } from "react"
+
+const WorkExperience = ({ resume, getUserResume }) => {
+    const classes = useStyles()
+    const { enqueueSnackbar } = useSnackbar()
+    const { user } = useContext(AppContext)
+    const [open, setOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [inputValues, setInputValues] = useState([{
+        title: "",
+        company: "",
+        description: "",
+        startYear: new Date(),
+        endYear: new Date(),
+    }])
+
+    const handleChange = (e, index, dateName) => {
+        if (dateName === "startYear" || dateName === "endYear") {
+            const list = [...inputValues]
+            list[index][dateName] = e
+            setInputValues(list)
+        } else {
+            const { name, value } = e.target
+            const list = [...inputValues]
+            list[index][name] = value
+            setInputValues(list)
+        }
+    }
+
+    const handleAddClick = () => {
+        let titleEmpty = inputValues?.some((item) => item.title == "")
+        let descriptionEmpty = inputValues?.some((item) => item.description == "")
+        let companyEmpty = inputValues?.some((item) => item.company == "")
+        if (titleEmpty) {
+            enqueueSnackbar("Title can't be empty", {
+                variant: "error", anchorOrigin: {
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                },
+            })
+        } else if (companyEmpty) {
+            enqueueSnackbar("Company can't be empty", {
+                variant: "error", anchorOrigin: {
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                },
+            })
+        } else if (descriptionEmpty) {
+            enqueueSnackbar("Description can't be empty", {
+                variant: "error", anchorOrigin: {
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                },
+            })
+        } else {
+            setInputValues([...inputValues, {
+                title: "",
+                company: "",
+                description: "",
+                startYear: new Date(),
+                endYear: new Date(),
+            }])
+        }
+
+    }
+
+    const handleRemoveClick = (index) => {
+        const list = [...inputValues]
+        list.splice(index, 1)
+        setInputValues(list)
+    }
+
+    const handleUpdateExperience = async () => {
+        if (inputValues.length <= 0) {
+            enqueueSnackbar("Atleast 1 work experience is required", {
+                variant: "error", anchorOrigin: {
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                },
+            })
+        } else {
+            try {
+                let payload = {
+                    experience: inputValues
+                }
+                setIsLoading(true)
+                const response = await updateResume(resume._id, payload)
+                if (response.status === 200) {
+                    setIsLoading(false)
+                    setOpen(false)
+                    enqueueSnackbar("Work Experience Updated Successfully",
+                        {
+                            variant: "success",
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }
+                        })
+                    getUserResume(user._id)
+                    setInputValues([{
+                        title: "",
+                        company: "",
+                        description: "",
+                        startYear: new Date(),
+                        endYear: new Date(),
+                    }])
+                } else {
+                    setIsLoading(false)
+                    enqueueSnackbar("Something went wrong",
+                        {
+                            variant: "error",
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }
+                        })
+                }
+            } catch (error) {
+                setIsLoading(false)
+                enqueueSnackbar("Something went wrong",
+                    {
+                        variant: "error",
+                        anchorOrigin: {
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                        }
+                    })
+            }
+        }
+
+    }
+
+    useLayoutEffect(() => {
+        if (resume?.experience?.length > 0) {
+            let temp = []
+            resume?.experience?.forEach((item) => {
+                temp.push({
+                    title: item.title,
+                    company: item.company,
+                    description: item.description,
+                    startYear: new Date(item.startYear),
+                    endYear: new Date(item.endYear),
+                })
+            })
+            setInputValues(temp)
+        }
+    }, [resume])
+
+
+    return (
+        <Box component="div" sx={{
+            border: `1px solid ${primaryBorderColor}`,
+            marginTop: "30px"
+        }}>
+            <Box component="div" sx={{
+                background: primaryColor,
+                padding: "20px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center"
+            }}>
+                <Typography variant="h1" sx={{ fontSize: "18px !important", fontWeight: "400 !important", color: headerColor }}>
+                    Work Experience
+                </Typography>
+                <AppRegistration onClick={() => setOpen(true)} sx={{ color: headerColor, cursor: "pointer" }} />
+            </Box>
+            <Box component="div" p={2}>
+                {
+                    resume?.experience?.length > 0 ?
+                        resume?.experience?.map((item) => {
+                            return (
+                                <Box component="div" sx={{ display: "flex", gap: "10px", marginTop: "30px" }}>
+                                    <Icon sx={{ color: primaryColor }}>work</Icon>
+                                    <Box component="div">
+                                        <Typography variant="h3" sx={{ fontSize: "15px !important", fontWeight: "400 !important", color: textSecondaryColor }}>
+                                            {`${moment(item.startYear).format("YYYY")} - ${moment(item.endYear).format("YYYY")}`}
+                                        </Typography>
+                                        <Typography variant="h3" sx={{ fontSize: "20px !important", fontWeight: "400 !important" }}>
+                                            {item.title} at <span style={{ color: primaryColor }}>{item.company}</span>
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            )
+                        })
+                        :
+                        <Box component="div" sx={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "20px" }}>
+                            <Typography variant="h3" sx={{ fontSize: "20px !important", fontWeight: "400 !important", color: textSecondaryColor }}>
+                                No Work Experience Info Found
+                            </Typography>
+                        </Box>
+                }
+            </Box>
+            <ExperienceModal
+                open={open}
+                setOpen={setOpen}
+                isLoading={isLoading}
+                inputValues={inputValues}
+                handleChange={handleChange}
+                handleAddClick={handleAddClick}
+                handleRemoveClick={handleRemoveClick}
+                handleUpdateExperience={handleUpdateExperience}
+            />
+        </Box>
+    )
+}
+
+export default WorkExperience

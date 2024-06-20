@@ -1,0 +1,31 @@
+[
+    {
+        "slider": [
+            {
+                "id": 1,
+                "image": "./images/slider/slide2.png",
+                "title": "Build Your Personal<br>Account Profile"
+            }
+        ]
+    },
+    {
+        "brand": [
+            {
+                "id": 1,
+                "image": "./images/brand-logo/1.png"
+            },
+            {
+                "id": 2,
+                "image": "./images/brand-logo/2.jpg"
+            },
+            {
+                "id": 3,
+                "image": "./images/brand-logo/3.png"
+            },
+            {
+                "id": 4,
+                "image": "./images/brand-logo/4.png"
+            }
+        ]
+    }
+]

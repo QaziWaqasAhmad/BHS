@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a7d15e7c.css",
+    "main.js": "/static/js/main.0501ded6.js",
+    "static/js/431.063a635d.chunk.js": "/static/js/431.063a635d.chunk.js",
+    "static/js/858.db68b434.chunk.js": "/static/js/858.db68b434.chunk.js",
+    "static/js/324.48d6bd58.chunk.js": "/static/js/324.48d6bd58.chunk.js",
+    "static/js/651.1356c42c.chunk.js": "/static/js/651.1356c42c.chunk.js",
+    "static/media/discoverMore.jpg": "/static/media/discoverMore.e1daf59f843831b64de4.jpg",
+    "static/media/about.gif": "/static/media/about.39f54e39539bf46a1714.gif",
+    "static/media/minal.jpeg": "/static/media/minal.5a50785d944b802b9de4.jpeg",
+    "static/media/maryam.jpeg": "/static/media/maryam.ffc308e69879c9f70071.jpeg",
+    "static/media/jaweria.jpeg": "/static/media/jaweria.919f57ffe9be64521287.jpeg",
+    "static/media/statisticalImage.png": "/static/media/statisticalImage.8b87f930cf1027fc769c.png",
+    "static/media/anum.jpeg": "/static/media/anum.68cfc1419c5b1a488c3b.jpeg",
+    "static/media/logo.png": "/static/media/logo.b902568b4dd320b87119.png",
+    "static/media/login-test.jpg": "/static/media/login-test.f7574ac08ff2085c2d84.jpg",
+    "static/media/hero-banner-background.png": "/static/media/hero-banner-background.2557785ca27e677f602e.png",
+    "static/media/about1.jpeg": "/static/media/about1.2c2705295c736a9cf898.jpeg",
+    "static/media/login.jpg": "/static/media/login.6aba8d74b424857d9609.jpg",
+    "static/media/hero-banner-animated.png": "/static/media/hero-banner-animated.1668c5c9ae4b3ba16c59.png",
+    "static/media/profile.png": "/static/media/profile.bf2aa57c354883cb76fd.png",
+    "static/media/coverbanner.png": "/static/media/coverbanner.25790131d474e2cc7eb1.png",
+    "static/media/profile.webp": "/static/media/profile.1a183754fe2b6ab49ed5.webp",
+    "index.html": "/index.html",
+    "main.a7d15e7c.css.map": "/static/css/main.a7d15e7c.css.map",
+    "main.0501ded6.js.map": "/static/js/main.0501ded6.js.map",
+    "431.063a635d.chunk.js.map": "/static/js/431.063a635d.chunk.js.map",
+    "858.db68b434.chunk.js.map": "/static/js/858.db68b434.chunk.js.map",
+    "324.48d6bd58.chunk.js.map": "/static/js/324.48d6bd58.chunk.js.map",
+    "651.1356c42c.chunk.js.map": "/static/js/651.1356c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7d15e7c.css",
+    "static/js/main.0501ded6.js"
+  ]
+}

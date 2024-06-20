@@ -1,0 +1,63 @@
+{
+  "name": "BHS",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/lab": "^5.0.0-alpha.153",
+    "@mui/material": "^5.14.18",
+    "@mui/styles": "^5.14.18",
+    "@mui/system": "^5.14.18",
+    "@react-pdf/renderer": "^3.1.14",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "add": "^2.0.6",
+    "axios": "^1.6.2",
+    "lucide-react": "^0.292.0",
+    "moment": "^2.29.4",
+    "notistack": "^3.0.1",
+    "react": "^18.2.0",
+    "react-code-input": "^3.10.1",
+    "react-datepicker": "^4.23.0",
+    "react-dom": "^18.2.0",
+    "react-loading": "^2.0.3",
+    "react-router-dom": "^6.20.0",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.8.0",
+    "react-slick": "^0.29.0",
+    "sweetalert2": "^11.10.1",
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.19"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "babel-loader": "^9.1.0"
+  }
+}
